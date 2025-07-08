@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery - Sasang Piyo Official</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Dark Theme (Default) */
+            --bg-dark: #121212; --bg-light: #1E1E1E; --text-primary: #FFFFFF;
+            --text-secondary: #b3b3b3; --brand-color: #DAA520; --border-color: #2c2c2c;
+            --font-heading: 'Teko', sans-serif; --font-body: 'Poppins', sans-serif;
+        }
+        body.light-theme {
+            /* Light Theme Variables */
+            --bg-dark: #FFFFFF; --bg-light: #f5f5f5; --text-primary: #121212;
+            --text-secondary: #555555; --brand-color: #C8961E; --border-color: #dddddd;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-dark); font-family: var(--font-body); color: var(--text-primary); transition: background-color 0.3s, color 0.3s; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        a { color: var(--brand-color); text-decoration: none; }
+
+        /* Main Gallery Grid */
+        .gallery-wrapper { padding: 40px 0; }
+        .gallery-container {
+            column-count: 2;
+            column-gap: 15px;
+        }
+        .pin { margin-bottom: 15px; break-inside: avoid; position: relative; cursor: pointer; border-radius: 16px; overflow: hidden; }
+        .pin img { width: 100%; display: block; transition: opacity 0.3s, transform 0.3s; }
+        .pin:hover img { opacity: 0.8; transform: scale(1.03); }
+
+        /* Modal (Popup) Styles */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none; justify-content: center; align-items: center;
+            z-index: 1002; padding: 20px;
+        }
+        .modal-overlay.show { display: flex; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .modal-content {
+            background-color: var(--bg-light); border-radius: 16px; max-width: 80vw;
+            width: auto; max-height: 90vh; display: flex; flex-direction: column;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.5); animation: zoomIn 0.3s ease;
+            position: relative;
+        }
+        @keyframes zoomIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+        .modal-image-container { padding: 10px; }
+        .modal-image { width: 100%; height: auto; max-height: 75vh; object-fit: contain; border-radius: 8px; }
+        .modal-actions { display: flex; justify-content: center; align-items: center; gap: 15px; padding: 15px 20px; border-top: 1px solid var(--border-color); }
+        .modal-btn {
+            background: var(--bg-dark); border: 1px solid var(--border-color); color: var(--text-secondary);
+            padding: 10px 15px; border-radius: 25px; cursor: pointer; font-size: 16px;
+            display: flex; align-items: center; gap: 8px; transition: all 0.3s; text-decoration: none;
+        }
+        .modal-btn:hover { background-color: var(--border-color); color: var(--text-primary); }
+        .modal-btn.liked { color: #E91E63; border-color: #E91E63; }
+        
+        .modal-close { position: absolute; top: -15px; right: -15px; font-size: 20px; color: black; background: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 1003; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+
+        @media (min-width: 576px) { .gallery-container { column-count: 3; } }
+        @media (min-width: 992px) { .gallery-container { column-count: 4; } }
+    </style>
+</head>
+<body>
+    <!-- হেডার এখানে লোড হবে -->
+    <div id="header-placeholder"></div>
+    
+    <div class="container">
+        <div class="gallery-wrapper">
+            <div class="gallery-container" id="gallery-container">
+                <!-- Images will be loaded by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close" id="modal-close-btn">&times;</span>
+            <div class="modal-image-container">
+                <img id="modal-img" src="" alt="Popup image" class="modal-image">
+            </div>
+            <div class="modal-actions">
+                <button id="like-btn" class="modal-btn"><i class="far fa-heart"></i> <span id="like-count">0</span></button>
+                <button id="share-btn" class="modal-btn"><i class="fas fa-share-up"></i> Share</button>
+                <a id="download-btn" href="" download class="modal-btn"><i class="fas fa-download"></i> Download</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ফুটার এখানে লোড হবে -->
+    <div id="footer-placeholder"></div>
+
+    <!-- এই স্ক্রিপ্টটি প্রতিটি পেজের শেষে থাকবে -->
+    <script src="main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sample Image Data - Replace with your actual image paths
+            const galleryData = [
+                { id: 1, thumb: 'images/thumb1.png', large: 'images/large1.png', alt: 'A beautiful Santali traditional look' },
+                { id: 2, thumb: 'images/thumb2.png', large: 'images/large2.png', alt: 'Behind the scenes of a music video shoot' },
+                { id: 3, thumb: 'images/thumb3.png', large: 'images/large3.png', alt: 'Candid wedding photography' },
+                { id: 4, thumb: 'images/image100.png', large: 'images/image100.png', alt: 'Photo from a recent wedding coverage' },
+                { id: 5, thumb: 'images/image101.png', large: 'images/image101.png', alt: 'Behind the scenes photo from a shoot' },
+                { id: 6, thumb: 'images/catering-portfolio1.png', large: 'images/catering-portfolio1.png', alt: 'Wedding feast setup' },
+                { id: 7, thumb: 'images/catering-portfolio2.png', large: 'images/catering-portfolio2.png', alt: 'Traditional food dish' },
+                { id: 8, thumb: 'images/image102.png', large: 'images/image102.png', alt: 'A team member photo' },
+                // Add more images here
+            ];
+
+            const galleryContainer = document.getElementById('gallery-container');
+            const modalOverlay = document.getElementById('modal-overlay');
+            const modalImg = document.getElementById('modal-img');
+            const downloadBtn = document.getElementById('download-btn');
+            const likeBtn = document.getElementById('like-btn');
+            const likeCountSpan = document.getElementById('like-count');
+            const shareBtn = document.getElementById('share-btn');
+            const closeBtn = document.getElementById('modal-close-btn');
+
+            let currentImage = null;
+
+            function loadGallery() {
+                if (!galleryContainer) return;
+                galleryContainer.innerHTML = ''; // Clear any previous content
+                galleryData.forEach(item => {
+                    const pin = document.createElement('div');
+                    pin.className = 'pin';
+                    pin.innerHTML = `<img src="${item.thumb}" alt="${item.alt}" loading="lazy">`;
+                    pin.onclick = () => openModal(item);
+                    galleryContainer.appendChild(pin);
+                });
+            }
+
+            function openModal(item) {
+                currentImage = item;
+                modalImg.src = item.large;
+                modalImg.alt = item.alt;
+                downloadBtn.href = item.large;
+                
+                // Reset like state for each new image
+                let likeCount = Math.floor(Math.random() * 100);
+                let isLiked = false;
+                
+                function updateLikeButton() {
+                    likeCountSpan.textContent = likeCount;
+                    likeBtn.classList.toggle('liked', isLiked);
+                    likeBtn.querySelector('i').className = isLiked ? 'fas fa-heart' : 'far fa-heart';
+                }
+                
+                updateLikeButton();
+
+                // Remove old event listener and add a new one
+                const newLikeBtn = likeBtn.cloneNode(true);
+                likeBtn.parentNode.replaceChild(newLikeBtn, likeBtn);
+                
+                newLikeBtn.addEventListener('click', () => {
+                    isLiked = !isLiked;
+                    likeCount += isLiked ? 1 : -1;
+                    updateLikeButton();
+                });
+                
+                // Re-assign the global likeBtn variable
+                window.likeBtn = newLikeBtn;
+
+                modalOverlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modalOverlay.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+
+            async function shareImage() {
+                if (navigator.share && currentImage) {
+                    try {
+                        await navigator.share({
+                            title: document.title,
+                            text: `Check out this image from Sasang Piyo Official: ${currentImage.alt}`,
+                            url: window.location.href // Shares the gallery page URL
+                        });
+                    } catch(err) {
+                        console.error("Share failed:", err.message);
+                    }
+                } else {
+                    alert('Share functionality is not supported on this browser. You can copy the page link.');
+                }
+            }
+            
+            // Event Listeners
+            closeBtn.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) closeModal();
+            });
+            shareBtn.addEventListener('click', shareImage);
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modalOverlay.classList.contains('show')) {
+                    closeModal();
+                }
+            });
+
+            // Initial Load
+            loadGallery();
+        });
+    </script>
+</body>
+</html>

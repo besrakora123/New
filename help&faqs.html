@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & FAQs - Sasang Piyo Official</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Dark Theme (Default) */
+            --bg-dark: #121212; --bg-card: #1E1E1E; --primary-gold: #D4AF37;
+            --text-white: #FFFFFF; --text-light: #B3B3B3; --border-color: #2C2C2C;
+            --font-heading: 'Playfair Display', serif; --font-body: 'Poppins', sans-serif;
+        }
+        body.light-theme {
+            /* Light Theme Variables */
+            --bg-dark: #f9f9f9; --bg-card: #FFFFFF; --primary-gold: #C8961E;
+            --text-white: #121212; --text-light: #555555; --border-color: #e0e0e0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-dark); color: var(--text-light); font-family: var(--font-body); line-height: 1.7; transition: background-color 0.3s, color 0.3s; }
+        .container { max-width: 800px; margin: 40px auto; padding: 20px; }
+
+        /* Header */
+        .faq-header {
+            text-align: center; margin-bottom: 40px; padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .faq-header h1 { font-family: var(--font-heading); font-size: 42px; color: var(--text-white); margin-bottom: 10px; }
+        .faq-header p { font-size: 16px; }
+        .faq-header a { color: var(--primary-gold); text-decoration: none; font-weight: 500; }
+
+        /* FAQ Section */
+        .faq-category { margin-bottom: 40px; }
+        .faq-category-title {
+            font-family: var(--font-heading); font-size: 28px; color: var(--primary-gold);
+            margin-bottom: 20px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;
+        }
+
+        .faq-item {
+            background-color: var(--bg-card);
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            overflow: hidden; /* Ensures the border-radius is respected by children */
+        }
+
+        .faq-question {
+            padding: 18px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-white);
+            transition: background-color 0.3s;
+        }
+        .faq-question:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        body.light-theme .faq-question:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .faq-question::after {
+            content: '\f078'; /* Font Awesome down arrow */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            transition: transform 0.3s;
+            font-size: 14px;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            color: var(--text-light);
+        }
+        .faq-answer p { padding-bottom: 18px; margin: 0; }
+        .faq-answer a { color: var(--primary-gold); font-weight: 500; }
+        
+        .faq-item.active .faq-question::after { transform: rotate(180deg); }
+        .faq-item.active .faq-answer {
+             /* Adjust max-height based on content length */
+            max-height: 250px;
+        }
+    </style>
+</head>
+<body>
+    <!-- হেডার এখানে লোড হবে -->
+    <div id="header-placeholder"></div>
+
+    <div class="container">
+        <header class="faq-header">
+            <h1>Help & FAQs</h1>
+            <p>Can't find an answer? <a href="contact.html">Contact Us</a> directly.</p>
+        </header>
+
+        <!-- Production FAQs -->
+        <div class="faq-category">
+            <h2 class="faq-category-title">🎬 Production Services</h2>
+            <div class="faq-item">
+                <div class="faq-question">What types of videos do you produce?</div>
+                <div class="faq-answer"><p>We specialize in Santali music albums, short films, and comedy sketches, handling everything from concept to final publishing.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How long does it take to produce a music video?</div>
+                <div class="faq-answer"><p>Typically, a music video takes 2 to 4 weeks, depending on the complexity, script, and artist availability. We provide a detailed timeline after our initial consultation.</p></div>
+            </div>
+        </div>
+
+        <!-- For New Artists FAQs -->
+        <div class="faq-category">
+            <h2 class="faq-category-title">🌟 For New Artists</h2>
+            <div class="faq-item">
+                <div class="faq-question">How can I collaborate with you?</div>
+                <div class="faq-answer"><p>Visit our "<a href="new-artist.html">Collaborate With Us</a>" page and fill out the application form with your portfolio. Our team will review it and contact you for suitable projects.</p></div>
+            </div>
+             <div class="faq-item">
+                <div class="faq-question">Is there any fee to join your artist platform?</div>
+                <div class="faq-answer"><p>No, there is no fee to submit your profile. For collaborative projects, all terms, including any payment or revenue share, will be clearly outlined in a formal agreement before we start.</p></div>
+            </div>
+        </div>
+        
+        <!-- YouTube Publishing FAQs -->
+        <div class="faq-category">
+            <h2 class="faq-category-title">📈 YouTube Publishing</h2>
+            <div class="faq-item">
+                <div class="faq-question">How does the 90/10 revenue share work for publishing?</div>
+                <div class="faq-answer"><p>If you have a ready-made video and want to publish it through our channel, we can help. After YouTube's standard deduction, we share 90% of the remaining ad revenue with you and retain 10% for our platform and promotion services.</p></div>
+            </div>
+        </div>
+
+        <!-- Rupmahar Studio FAQs -->
+        <div class="faq-category">
+            <h2 class="faq-category-title">📸 Rupmahar Studio</h2>
+            <div class="faq-item">
+                <div class="faq-question">What is the difference between Traditional and Cinematic videography?</div>
+                <div class="faq-answer"><p>Traditional videography focuses on documenting the event as it happens in a linear sequence. Cinematic videography is more artistic, using creative camera angles, storytelling techniques, and music to create a movie-like film of your special day.</p></div>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- ফুটার এখানে লোড হবে -->
+    <div id="footer-placeholder"></div>
+
+    <!-- এই স্ক্রিপ্টটি প্রতিটি পেজের শেষে থাকবে -->
+    <script src="main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // This script should run after main.js has potentially loaded the header/footer
+            // However, since it's specific to this page, we can run it directly.
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other active items
+                    const currentlyActive = document.querySelector('.faq-item.active');
+                    if (currentlyActive && currentlyActive !== item) {
+                        currentlyActive.classList.remove('active');
+                    }
+                    
+                    // Toggle the clicked item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

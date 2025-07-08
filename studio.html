@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rupmahar Studio - Sasang Piyo Official</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600&family=Poppins:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Dark Theme (Default) */
+            --bg-dark: #121212; --bg-light: #1E1E1E; --text-primary: #FFFFFF;
+            --text-secondary: #b3b3b3; --brand-color: #DAA520; --border-color: #2c2c2c;
+            --font-heading: 'Teko', sans-serif; --font-body: 'Poppins', sans-serif;
+            --font-cursive: 'Great Vibes', cursive;
+        }
+        body.light-theme {
+            /* Light Theme Variables */
+            --bg-dark: #FFFFFF; --bg-light: #f5f5f5; --text-primary: #121212;
+            --text-secondary: #555555; --brand-color: #C8961E; --border-color: #dddddd;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); font-family: var(--font-body); color: var(--text-primary); transition: background-color 0.3s, color 0.3s; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        a { color: var(--brand-color); text-decoration: none; }
+
+        /* Page-specific Styles */
+        .main-content { padding: 20px 0; }
+        .section { margin-bottom: 40px; }
+        .section-title { font-family: var(--font-heading); font-size: 36px; text-align: center; margin-bottom: 40px; color: var(--text-primary); }
+        
+        /* Rupmahar Studio Main Card */
+        .studio-main-card {
+            background: linear-gradient(rgba(18,18,18,0.85), rgba(18,18,18,0.85)), url(images/studio-hero.png) no-repeat center center/cover;
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            margin: 20px 0;
+        }
+        .studio-main-card h1 {
+            font-family: var(--font-heading);
+            font-size: 48px;
+            color: var(--brand-color);
+            margin-bottom: 15px;
+        }
+        .studio-main-card .slogan {
+            font-family: var(--font-cursive);
+            font-size: 38px;
+            color: #f0f0f0; /* Kept light for readability on dark background */
+            margin-top: 10px;
+        }
+
+        /* Service Grid */
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .service-card { background-color: var(--bg-light); padding: 30px; border-radius: 12px; text-align: center; border: 1px solid var(--border-color); transition: transform 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card .icon { font-size: 42px; color: var(--brand-color); margin-bottom: 20px; }
+        .service-card h3 { font-size: 22px; font-weight: 600; margin-bottom: 10px; color: var(--text-primary); }
+        .service-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+        
+        /* Equipment Card Grid */
+        .equipment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .equipment-card { background-color: var(--bg-light); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color); text-align: center; }
+        .equipment-card .icon { font-size: 36px; color: var(--brand-color); margin-bottom: 15px; }
+        .equipment-card .item-name { font-weight: 600; font-size: 18px; color: var(--text-primary); }
+        .equipment-card .status { font-size: 12px; color: #f44336; font-style: italic; margin-top: 5px; }
+        body.light-theme .equipment-card .status { color: #d32f2f; }
+        
+        .coming-soon-section { background: var(--bg-light); padding: 40px; border-radius: 12px; text-align: center; border: 2px dashed var(--border-color); }
+        .coming-soon-section .icon { font-size: 48px; color: var(--brand-color); margin-bottom: 15px; }
+        .coming-soon-section h2 { font-family: var(--font-heading); font-size: 28px; margin-bottom: 10px; color: var(--text-primary); }
+        .coming-soon-section p { color: var(--text-secondary); }
+        
+        .btn { display: inline-block; padding: 12px 30px; background-color: var(--brand-color); color: var(--bg-dark); text-decoration: none; border-radius: 50px; font-weight: 600; margin-top: auto; transition: transform 0.2s; }
+        .btn:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <!-- হেডার এখানে লোড হবে -->
+    <div id="header-placeholder"></div>
+    
+    <div class="container">
+        <main class="main-content">
+            <!-- Rupmahar Studio Main Card -->
+            <section class="section">
+                <div class="studio-main-card">
+                    <h1>RUPMAHAR STUDIO</h1>
+                    <p class="slogan">Capturing your precious moments with our professional photographer, Videographer. And providing high quality equipment for rent.</p>
+                </div>
+            </section>
+
+            <!-- Wedding & Event Coverage Section -->
+            <section class="section">
+                <h2 class="section-title">Wedding & Event Coverage</h2>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div>
+                            <div class="icon"><i class="fas fa-camera-retro"></i></div><h3>Photography</h3>
+                            <p>Creative and professional photos for weddings, events, and portraits.</p>
+                        </div>
+                        <a href="contact.html" class="btn">Book Now</a>
+                    </div>
+                    <div class="service-card">
+                        <div>
+                            <div class="icon"><i class="fas fa-video"></i></div><h3>Videography</h3>
+                            <p>High-quality video coverage to document your event beautifully.</p>
+                        </div>
+                        <a href="contact.html" class="btn">Book Now</a>
+                    </div>
+                    <div class="service-card">
+                        <div>
+                            <div class="icon"><i class="fas fa-plane"></i></div><h3>Drone Videography</h3>
+                            <p>Stunning aerial shots to give your event a grand, cinematic feel.</p>
+                        </div>
+                        <a href="contact.html" class="btn">Book Now</a>
+                    </div>
+                    <div class="service-card">
+                        <div>
+                            <div class="icon"><i class="fas fa-film"></i></div><h3>Cinematography</h3>
+                            <p>Artistic, movie-like wedding films that tell the unique story of your special day.</p>
+                        </div>
+                        <a href="contact.html" class="btn">Book Now</a>
+                    </div>
+                    <div class="service-card">
+                        <div>
+                             <div class="icon"><i class="fas fa-ring"></i></div><h3>Wedding Coverage</h3>
+                            <p>Complete photography and videography packages for your entire wedding.</p>
+                        </div>
+                         <a href="contact.html" class="btn">Book Now</a>
+                    </div>
+                    <div class="service-card">
+                        <div>
+                            <div class="icon"><i class="fas fa-calendar-check"></i></div><h3>Special Event Coverage</h3>
+                            <p>Professional coverage for birthdays, anniversaries, and corporate functions.</p>
+                        </div>
+                        <a href="contact.html" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Equipment Rental Section -->
+            <section class="section">
+                <h2 class="section-title">Equipment For Rent</h2>
+                <div class="equipment-grid">
+                    <div class="equipment-card"><div class="icon"><i class="fas fa-camera"></i></div><span class="item-name">CAMERA</span><span class="status">(Coming Soon)</span></div>
+                    <div class="equipment-card"><div class="icon"><i class="fas fa-bullseye"></i></div><span class="item-name">LENSES</span><span class="status">(Coming Soon)</span></div>
+                    <div class="equipment-card"><div class="icon"><i class="fas fa-lightbulb"></i></div><span class="item-name">LIGHTING</span><span class="status">(Coming Soon)</span></div>
+                    <div class="equipment-card"><div class="icon"><i class="fas fa-plane-departure"></i></div><span class="item-name">DRONE</span><span class="status">(Coming Soon)</span></div>
+                    <div class="equipment-card"><div class="icon"><i class="fas fa-hand-paper"></i></div><span class="item-name">GIMBAL</span><span class="status">(Coming Soon)</span></div>
+                    <div class="equipment-card"><div class="icon"><i class="fas fa-project-diagram"></i></div><span class="item-name">TRIPOD</span><span class="status">(Coming Soon)</span></div>
+                </div>
+            </section>
+
+            <!-- Recording Studio Section -->
+            <section class="section">
+                 <h2 class="section-title">Recording Studio</h2>
+                 <div class="coming-soon-section">
+                    <div class="icon"><i class="fas fa-microphone-alt"></i></div>
+                    <h2>Coming Soon!</h2>
+                    <p>Our professional, acoustically treated sound recording studio is currently under construction. Stay tuned for the launch!</p>
+                 </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- ফুটার এখানে লোড হবে -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- এই স্ক্রিপ্টটি প্রতিটি পেজের শেষে থাকবে -->
+    <script src="main.js" defer></script>
+</body>
+</html>

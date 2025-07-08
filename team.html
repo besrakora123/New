@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - Sasang Piyo Official</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Dark Theme (Default) */
+            --bg-dark: #121212; --bg-light: #1E1E1E; --text-primary: #FFFFFF;
+            --text-secondary: #b3b3b3; --brand-color: #DAA520; --border-color: #2c2c2c;
+            --font-heading: 'Teko', sans-serif; --font-body: 'Poppins', sans-serif;
+        }
+        body.light-theme {
+            /* Light Theme Variables */
+            --bg-dark: #FFFFFF; --bg-light: #f5f5f5; --text-primary: #121212;
+            --text-secondary: #555555; --brand-color: #C8961E; --border-color: #dddddd;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-dark); font-family: var(--font-body); color: var(--text-primary); transition: background-color 0.3s, color 0.3s; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        a { color: var(--brand-color); text-decoration: none; }
+
+        /* Main Content */
+        .main-content { padding: 40px 0; }
+        .page-header { text-align: center; margin-bottom: 50px; }
+        .page-header h1 { font-family: var(--font-heading); font-size: 48px; color: var(--text-primary); }
+        .page-header p { font-size: 16px; color: var(--text-secondary); max-width: 600px; margin: 10px auto 0 auto; line-height: 1.7; }
+        
+        .section { margin-bottom: 50px; }
+        .section-title { font-family: var(--font-heading); font-size: 36px; text-align: center; margin-bottom: 40px; color: var(--text-primary); }
+        
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .team-member-card {
+            background-color: var(--bg-light);
+            border-radius: 12px;
+            text-align: center;
+            padding: 30px 20px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .team-member-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .team-member-card img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--brand-color);
+            margin: 0 auto 20px auto;
+        }
+        .team-member-card .name {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-primary);
+        }
+        .team-member-card .role {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            color: var(--brand-color);
+            margin-bottom: 15px;
+        }
+        .team-member-card .bio {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 25px; /* Increased space before socials */
+            min-height: 65px; 
+            flex-grow: 1; /* Pushes socials to the bottom */
+        }
+        .member-socials a {
+            color: var(--text-secondary);
+            margin: 0 10px;
+            font-size: 20px; /* Slightly larger icons */
+            transition: color 0.3s, transform 0.3s;
+        }
+        .member-socials a:hover {
+            color: var(--brand-color);
+            transform: scale(1.2);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- হেডার এখানে লোড হবে -->
+    <div id="header-placeholder"></div>
+    
+    <div class="container">
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Meet the Creative Minds</h1>
+                <p>We are a team of passionate storytellers, artists, and professionals dedicated to bringing creative visions to life.</p>
+            </div>
+
+            <!-- Production Team Section -->
+            <section class="section">
+                <h2 class="section-title">Production Team</h2>
+                <div class="team-grid">
+                    <!-- Member 1 -->
+                    <div class="team-member-card">
+                        <img src="images/team1.png" alt="Photo of Founder">
+                        <h3 class="name">Member One</h3>
+                        <p class="role">Founder & Director</p>
+                        <p class="bio">The visionary behind Sasang Piyo Official, leading every project with passion and creativity.</p>
+                        <div class="member-socials">
+                            <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                    <!-- Member 2 -->
+                    <div class="team-member-card">
+                        <img src="images/team2.png" alt="Photo of Producer">
+                        <h3 class="name">Member Two</h3>
+                        <p class="role">Producer</p>
+                        <p class="bio">Manages all aspects of production, ensuring every project runs smoothly from start to finish.</p>
+                        <div class="member-socials">
+                            <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <!-- Member 3 -->
+                    <div class="team-member-card">
+                        <img src="images/team3.png" alt="Photo of Editor">
+                        <h3 class="name">Member Three</h3>
+                        <p class="role">Lead Editor & Cinematographer</p>
+                        <p class="bio">Brings stories to life through expert camera work and post-production magic.</p>
+                        <div class="member-socials">
+                             <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Catering Team Section -->
+            <section class="section">
+                <h2 class="section-title">Catering Team</h2>
+                 <div class="team-grid">
+                    <!-- Head Chef -->
+                    <div class="team-member-card">
+                        <img src="images/chef1.png" alt="Photo of Head Chef">
+                        <h3 class="name">Head Chef Name</h3>
+                        <p class="role">Master of Traditional Cuisine</p>
+                        <p class="bio">With years of experience, our head chef creates delicious and authentic dishes for every occasion.</p>
+                        <div class="member-socials">
+                            <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <!-- Event Manager -->
+                    <div class="team-member-card">
+                        <img src="images/manager1.png" alt="Photo of Event Manager">
+                        <h3 class="name">Event Manager Name</h3>
+                        <p class="role">Catering & Event Manager</p>
+                        <p class="bio">Coordinates every detail of the catering service to ensure your event is a grand success.</p>
+                         <div class="member-socials">
+                            <a href="#" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <!-- Service Staff Lead -->
+                    <div class="team-member-card">
+                        <img src="images/service-boy.png" alt="Photo of Service Staff Lead">
+                        <h3 class="name">Service Staff Lead</h3>
+                        <p class="role">Lead Service Boy</p>
+                        <p class="bio">Our dedicated and professional service team ensures your guests have a wonderful experience.</p>
+                        <div class="member-socials">
+                           <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                           <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- ফুটার এখানে লোড হবে -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- এই স্ক্রিপ্টটি প্রতিটি পেজের শেষে থাকবে -->
+    <script src="main.js" defer></script>
+</body>
+</html>

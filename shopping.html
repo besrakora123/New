@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sasang Piyo Store - Grand Opening Soon</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Dark Theme (Default) */
+            --bg-dark: #121212; --bg-light: #1E1E1E; --text-primary: #FFFFFF;
+            --text-secondary: #b3b3b3; --brand-color: #DAA520; --border-color: #2c2c2c;
+            --font-heading: 'Teko', sans-serif; --font-body: 'Poppins', sans-serif;
+            --success-color: #28a745; --danger-color: #dc3545;
+        }
+        body.light-theme {
+            /* Light Theme Variables */
+            --bg-dark: #f9f9f9; --bg-light: #FFFFFF; --text-primary: #121212;
+            --text-secondary: #555555; --brand-color: #C8961E; --border-color: #e0e0e0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-dark); font-family: var(--font-body); color: var(--text-primary); transition: background-color 0.3s, color 0.3s; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        .main-content { padding: 20px 0; }
+
+        /* Slider Section */
+        .slider-section { margin-bottom: 25px; }
+        .swiper-slide img { width: 100%; border-radius: 12px; aspect-ratio: 16/8; object-fit: cover; }
+        .swiper-pagination-bullet { background: var(--text-secondary); }
+        .swiper-pagination-bullet-active { background: var(--brand-color); }
+
+        /* Category Grid */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columns for mobile */
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        @media (min-width: 768px) {
+            .category-grid {
+                grid-template-columns: repeat(8, 1fr); /* 8 columns for desktop */
+            }
+        }
+        .category-item { text-align: center; cursor: pointer; }
+        .category-image-wrapper {
+            background-color: var(--bg-light);
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 10px; border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+        .category-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .category-item span { font-size: 14px; font-weight: 500; color: var(--text-secondary); }
+        
+        /* Deals Section */
+        .section-title {
+            font-family: var(--font-heading); font-size: 28px; color: var(--text-primary);
+            margin-bottom: 20px; border-left: 4px solid var(--brand-color); padding-left: 10px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+            gap: 20px;
+        }
+        @media (min-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
+            }
+        }
+        .product-card {
+            background-color: var(--bg-light); border: 1px solid var(--border-color);
+            border-radius: 12px; overflow: hidden; position: relative;
+            cursor: pointer; transition: transform 0.3s;
+        }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-image { width: 100%; aspect-ratio: 1 / 1.1; object-fit: cover; }
+        .offer-badge {
+            position: absolute; top: 10px; left: 10px;
+            background-color: var(--danger-color); color: white;
+            padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;
+        }
+        .product-info { padding: 15px; }
+        .product-name { font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+        .product-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 10px; }
+        .product-price { font-size: 18px; font-weight: 500; color: var(--success-color); }
+        .product-price .original { text-decoration: line-through; color: var(--text-secondary); font-size: 14px; margin-left: 8px; }
+
+        /* Coming Soon Modal */
+        .coming-soon-modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px);
+            z-index: 1002; display: none; justify-content: center; align-items: center;
+        }
+        .coming-soon-modal.show { display: flex; animation: fadeIn 0.3s; }
+        .modal-content {
+            background: var(--bg-light); padding: 30px; border-radius: 12px;
+            text-align: center; max-width: 350px; width: 90%;
+            border: 1px solid var(--border-color);
+            position: relative; animation: zoomIn 0.3s;
+        }
+        .modal-close { position: absolute; top: 10px; right: 15px; font-size: 24px; color: var(--text-secondary); cursor: pointer; }
+        .modal-content i { font-size: 40px; color: var(--brand-color); margin-bottom: 15px; }
+        .modal-content h2 { font-size: 24px; color: var(--text-primary); margin-bottom: 10px; }
+        .modal-content p { color: var(--text-secondary); }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes zoomIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    
+    <div class="container">
+        <main class="main-content">
+            <!-- Slider Section -->
+            <section class="slider-section">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/store_banner1.png" alt="Grand Opening Sale Banner"></div>
+                        <div class="swiper-slide"><img src="images/store_banner2.png" alt="Traditional Weaves Banner"></div>
+                        <div class="swiper-slide"><img src="images/store_banner3.png" alt="Handcrafted Jewellery Banner"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </section>
+
+            <!-- Category Section -->
+            <section class="category-section">
+                <div class="category-grid" id="category-grid">
+                    <!-- Categories will be loaded by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Deals Section -->
+            <section class="deals-section">
+                <h2 class="section-title">Deals of the Day</h2>
+                <div class="product-grid" id="product-grid">
+                    <!-- Products will be loaded by JavaScript -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Coming Soon Modal -->
+    <div class="coming-soon-modal" id="coming-soon-modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <i class="fas fa-store"></i>
+            <h2>Our Store is Launching Soon!</h2>
+            <p>Thank you for your interest. Please check back later for our grand opening.</p>
+        </div>
+    </div>
+    
+    <div id="footer-placeholder"></div>
+    
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Swiper
+            new Swiper('.swiper', {
+                loop: true,
+                autoplay: { delay: 3500 },
+                pagination: { el: '.swiper-pagination', clickable: true },
+            });
+
+            // Data for Categories and Products
+            const categories = [
+                { name: "Sarees", image: "images/cat_saree.png" },
+                { name: "Dhotis", image: "images/cat_dhoti.png" },
+                { name: "Jewellery", image: "images/cat_jewellery.png" },
+                { name: "Home Decor", image: "images/cat_decor.png" },
+                { name: "Puja Items", image: "images/cat_puja.png" },
+                { name: "Handicrafts", image: "images/cat_handicraft.png" },
+                { name: "Kids", image: "images/cat_kids.png" },
+                { name: "Accessories", image: "images/cat_accessory.png" }
+            ];
+
+            const products = [
+                { name: "Phuta Saree", desc: "Authentic handwoven saree", price: "1427", originalPrice: "2039", image: "images/dress1.png" },
+                { name: "Panchi Dhoti", desc: "For traditional occasions", price: "699", originalPrice: "999", image: "images/dress2.png" },
+                { name: "Silver Hasli Necklace", desc: "Pure silver traditional necklace", price: "3499", originalPrice: "4999", image: "images/accessory1.png" },
+                { name: "Handcrafted Dupatta", desc: "Vibrant and stylish", price: "559", originalPrice: "799", image: "images/dress8.png" },
+                 { name: "Festival Special Saree", desc: "Elegant look for festivals", price: "1999", originalPrice: "2856", image: "images/dress9.png" },
+                 { name: "Santhali Art T-Shirt", desc: "Modern and traditional mix", price: "489", originalPrice: "699", image: "images/accessory3.png" },
+                 { name: "Jhalah Saree", desc: "Lightweight and comfortable", price: "1119", originalPrice: "1599", image: "images/dress3.png" },
+                 { name: "Traditional Gamcha", desc: "Multipurpose handwoven cloth", price: "209", originalPrice: "299", image: "images/dress4.png" },
+            ];
+
+            const categoryGrid = document.getElementById('category-grid');
+            const productGrid = document.getElementById('product-grid');
+            const modal = document.getElementById('coming-soon-modal');
+            
+            // Render Categories with Images
+            categoryGrid.innerHTML = categories.map(cat => `
+                <div class="category-item" onclick="openModal()">
+                    <div class="category-image-wrapper">
+                        <img src="${cat.image}" alt="${cat.name}" onerror="this.src='https://via.placeholder.com/70x70.png?text=Img'">
+                    </div>
+                    <span>${cat.name}</span>
+                </div>
+            `).join('');
+
+            // Render Products
+            productGrid.innerHTML = products.map(prod => `
+                <div class="product-card" onclick="openModal()">
+                    <div class="product-image-wrapper">
+                        <img src="${prod.image}" alt="${prod.name}" class="product-image" onerror="this.src='https://via.placeholder.com/300x330.png?text=Img'">
+                        <div class="offer-badge">30% OFF</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">${prod.name}</h3>
+                        <p class="product-desc">${prod.desc}</p>
+                        <div class="product-price">
+                            ₹${prod.price} <span class="original">₹${prod.originalPrice}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Modal Functions
+            window.openModal = () => modal.classList.add('show');
+            window.closeModal = () => modal.classList.remove('show');
+            modal.addEventListener('click', e => (e.target === modal) && closeModal());
+        });
+    </script>
+</body>
+</html>

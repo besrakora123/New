@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Sasang Piyo Official</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Dark Theme (Default) */
+            --bg-dark: #121212; --bg-light: #1E1E1E; --text-primary: #FFFFFF;
+            --text-secondary: #b3b3b3; --brand-color: #DAA520; --border-color: #2c2c2c;
+            --font-heading: 'Teko', sans-serif; --font-body: 'Poppins', sans-serif;
+        }
+        body.light-theme {
+            /* Light Theme Variables */
+            --bg-dark: #FFFFFF; --bg-light: #f5f5f5; --text-primary: #121212;
+            --text-secondary: #555555; --brand-color: #C8961E; --border-color: #dddddd;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); font-family: var(--font-body); color: var(--text-primary); transition: background-color 0.3s, color 0.3s; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        a { color: var(--brand-color); text-decoration: none; }
+        
+        .main-content { padding: 20px 0; }
+        
+        /* Page Hero Section */
+        .page-hero {
+            padding: 60px 20px; text-align: center;
+            background: linear-gradient(rgba(18,18,18,0.8), rgba(18,18,18,0.8)), url('images/about-hero.png') no-repeat center center/cover;
+            border-radius: 12px; margin: 20px 0;
+        }
+        .page-hero h1 { font-family: var(--font-heading); font-size: 48px; }
+        .page-hero p { font-size: 18px; color: #f0f0f0; max-width: 700px; margin: 10px auto 0 auto; line-height: 1.7; }
+        body.light-theme .page-hero p { color: #f0f0f0; } /* Keep text light for readability */
+
+        .section { margin-bottom: 40px; }
+        .section-title { font-family: var(--font-heading); font-size: 36px; text-align: center; margin-bottom: 40px; color: var(--text-primary); }
+        
+        /* Why Choose Us Grid */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .feature-card { background-color: var(--bg-light); padding: 30px; border-radius: 12px; text-align: center; border: 1px solid var(--border-color); }
+        .feature-card .icon { font-size: 36px; color: var(--brand-color); margin-bottom: 15px; }
+        .feature-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 10px; color: var(--text-primary); }
+        .feature-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+        
+        /* Service List */
+        .service-list .service-item {
+            background-color: var(--bg-light);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--brand-color);
+        }
+        .service-item h3 { font-family: var(--font-heading); font-size: 24px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; color: var(--text-primary); }
+        .service-item p { color: var(--text-secondary); line-height: 1.7; margin-bottom: 15px; }
+        .service-item .btn {
+            display: inline-block; padding: 8px 20px; background-color: var(--brand-color);
+            color: #121212; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 14px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .service-item .btn:hover { transform: scale(1.05); background-color: #ffc107; }
+        
+        /* Team Grid */
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .team-member { text-align: center; }
+        .team-member img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--brand-color); margin-bottom: 15px; }
+        .team-member h4 { font-size: 20px; font-weight: 600; color: var(--text-primary); }
+        .team-member p { color: var(--text-secondary); }
+    </style>
+</head>
+<body>
+    <!-- হেডার এখানে লোড হবে -->
+    <div id="header-placeholder"></div>
+    
+    <div class="container">
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="page-hero">
+                <h1>Sasang Piyo Official</h1>
+                <p>Welcome to the heart of modern Santali entertainment. We are a premier production house dedicated to preserving our rich cultural heritage while pushing the boundaries of creative storytelling for a global audience.</p>
+            </section>
+
+            <!-- Why Choose Us Section -->
+            <section class="section">
+                <h2 class="section-title">Why Choose Sasang Piyo Official?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-landmark"></i></div>
+                        <h3>Authentic Storytelling</h3>
+                        <p>Our content is deeply rooted in Santali culture, tradition, and lived experiences.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-medal"></i></div>
+                        <h3>Professional Quality</h3>
+                        <p>From concept to final cut, we ensure every project meets industry-grade standards.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-rocket"></i></div>
+                        <h3>Talent Incubator</h3>
+                        <p>We provide a nurturing platform for new artists to grow, gain exposure, and build a career.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-hands-helping"></i></div>
+                        <h3>Collaborative Spirit</h3>
+                        <p>We believe in the power of partnerships to unlock creativity and achieve extraordinary results.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Our Services Overview -->
+            <section class="section">
+                <h2 class="section-title">Our Services</h2>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h3><i class="fas fa-clapperboard"></i>Full-Scale Video Production</h3>
+                        <p>From script to screen, we manage every aspect of production with creativity, care, and technical precision. We create music videos, dramatic short films, and lighthearted comedy sketches.</p>
+                        <a href="production.html" class="btn">Explore Our Work</a>
+                    </div>
+                    <div class="service-item">
+                        <h3><i class="fas fa-star"></i>A Platform for New Artists</h3>
+                        <p>Are you a budding singer, actor, or performer? At Sasang Piyo Official, your talent gets the spotlight it deserves. We provide mentorship, training, and media exposure.</p>
+                        <a href="new-artist.html" class="btn">Collaborate With Us</a>
+                    </div>
+                    <div class="service-item">
+                        <h3><i class="fas fa-chart-line"></i>YouTube Publishing & Promotion</h3>
+                        <p>Publish your finished video on our growing platform and tap into our established viewer base. You earn 90% of the income — we charge only a 10% service fee.</p>
+                        <a href="contact.html" class="btn">Submit Your Video</a>
+                    </div>
+                    <div class="service-item">
+                        <h3><i class="fas fa-camera-retro"></i>Rupmahar Studio</h3>
+                        <p>Our in-house studio delivers top-quality wedding and event coverage, including photography and videography in both traditional and cinematic styles.</p>
+                        <a href="studio.html" class="btn">Discover Rupmahar Studio</a>
+                    </div>
+                     <div class="service-item">
+                        <h3><i class="fas fa-utensils"></i>Authentic Catering Services</h3>
+                        <p>We bring taste and tradition to your events with hygienic and delicious food for weddings, ceremonies, and social gatherings.</p>
+                        <a href="catering.html" class="btn">Request a Catering Quote</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Our Team Section -->
+            <section class="section">
+                <h2 class="section-title">Our Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="images/team1.png" alt="Founder & Director">
+                        <h4>Team Member 1</h4>
+                        <p>Founder & Director</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="images/team2.png" alt="Creative Director">
+                        <h4>Team Member 2</h4>
+                        <p>Creative Director</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="images/team3.png" alt="Head of Production">
+                        <h4>Team Member 3</h4>
+                        <p>Head of Production</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    
+    <!-- ফুটার এখানে লোড হবে -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- এই স্ক্রিপ্টটি প্রতিটি পেজের শেষে থাকবে -->
+    <script src="main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catering Services - Sasang Piyo Official</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Poppins:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Dark Theme (Default) */
+            --bg-dark: #121212; --bg-light: #1E1E1E; --text-primary: #FFFFFF;
+            --text-secondary: #b3b3b3; --brand-color: #DAA520; --border-color: #2c2c2c;
+            --font-heading: 'Teko', sans-serif; --font-body: 'Poppins', sans-serif;
+            --font-cursive: 'Great Vibes', cursive;
+        }
+        body.light-theme {
+            /* Light Theme Variables */
+            --bg-dark: #FFFFFF; --bg-light: #f5f5f5; --text-primary: #121212;
+            --text-secondary: #555555; --brand-color: #C8961E; --border-color: #dddddd;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); font-family: var(--font-body); color: var(--text-primary); transition: background-color 0.3s, color 0.3s; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        a { color: var(--brand-color); text-decoration: none; }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 100px 20px; text-align: center;
+            background: linear-gradient(rgba(18,18,18,0.7), rgba(18,18,18,0.7)), url('images/catering-hero-bg.png') no-repeat center center/cover;
+            color: var(--text-primary); min-height: 50vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        .hero-section h1 { font-family: var(--font-heading); font-size: 52px; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero-section p.sub-heading { font-family: var(--font-cursive); font-size: 32px; color: #f0f0f0; max-width: 600px; margin-top: 10px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+        
+        /* Main Content */
+        .main-content { padding: 40px 0; }
+        .section { margin-bottom: 50px; }
+        .section-title { font-family: var(--font-heading); font-size: 36px; text-align: center; margin-bottom: 40px; color: var(--text-primary); }
+        
+        /* Service Grid */
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .service-card { background-color: var(--bg-light); padding: 30px; border-radius: 12px; text-align: center; border: 1px solid var(--border-color); transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card .icon { font-size: 42px; color: var(--brand-color); margin-bottom: 20px; }
+        .service-card h3 { font-size: 22px; font-weight: 600; margin-bottom: 10px; color: var(--text-primary); }
+        .service-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+        
+        /* Portfolio & Team Grid Styles */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .portfolio-item img { width: 100%; border-radius: 8px; object-fit: cover; aspect-ratio: 1; transition: transform 0.3s; }
+        .portfolio-item:hover img { transform: scale(1.05); }
+
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .team-member { text-align: center; }
+        .team-member img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--brand-color); margin-bottom: 15px; }
+        .team-member h4 { font-size: 20px; font-weight: 600; color: var(--text-primary); }
+        .team-member p { color: var(--text-secondary); }
+
+        /* CTA Section Styles */
+        .cta-section {
+            text-align: center;
+            background-color: var(--bg-light);
+            padding: 40px 20px;
+            border-radius: 12px;
+            margin-top: 50px;
+            border: 1px solid var(--border-color);
+        }
+        .cta-section h2 { font-family: var(--font-heading); font-size: 32px; margin-bottom: 10px; color: var(--text-primary); }
+        .cta-section p { margin-bottom: 25px; color: var(--text-secondary); }
+        .btn {
+            display: inline-block; padding: 12px 30px; background-color: var(--brand-color);
+            color: #121212; text-decoration: none; border-radius: 50px; font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .btn:hover { transform: scale(1.05); background-color: #ffc107; }
+    </style>
+</head>
+<body>
+    <!-- হেডার এখানে লোড হবে -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>SASANG PIYO HANSYAL & CATERING</h1>
+        <p class="sub-heading">"Hor khange pera,Hansyal khange <br>Sasang Piyo aah katha gem rora."</p>
+    </section>
+
+    <div class="container">
+        <main class="main-content">
+            <!-- Events We Cater Section -->
+            <section class="section">
+                <h2 class="section-title">Events We Cater For</h2>
+                <div class="service-grid">
+                    <div class="service-card"><div class="icon"><i class="fas fa-ring"></i></div><h3>Weddings & Receptions</h3><p>From grand feasts to intimate gatherings, we provide a memorable dining experience.</p></div>
+                    <div class="service-card"><div class="icon"><i class="fas fa-pray"></i></div><h3>Traditional Ceremonies</h3><p>Authentic, hygienic food for ceremonies like Shraadh and other rituals.</p></div>
+                    <div class="service-card"><div class="icon"><i class="fas fa-users"></i></div><h3>Family & Social Gatherings</h3><p>Birthdays, anniversaries, or any get-together, we make it special with delicious food.</p></div>
+                </div>
+            </section>
+            
+            <!-- Our Portfolio Section -->
+            <section class="section">
+                <h2 class="section-title">Our Portfolio</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item"><img src="images/catering-portfolio1.png" alt="Wedding feast setup"></div>
+                    <div class="portfolio-item"><img src="images/catering-portfolio2.png" alt="Traditional food dish"></div>
+                    <div class="portfolio-item"><img src="images/catering-portfolio3.png" alt="Event decoration and food"></div>
+                    <div class="portfolio-item"><img src="images/catering-portfolio4.png" alt="Serving food at an event"></div>
+                </div>
+            </section>
+
+            <!-- Our Team Section -->
+            <section class="section">
+                <h2 class="section-title">Our Catering Team</h2>
+                <div class="team-grid">
+                    <div class="team-member"><img src="images/chef1.png" alt="Head Chef"><h4>Head Chef Name</h4><p>Master of Traditional Cuisine</p></div>
+                    <div class="team-member"><img src="images/manager1.png" alt="Event Manager"><h4>Event Manager Name</h4><p>Ensures Flawless Service</p></div>
+                    <div class="team-member"><img src="images/hygiene-expert.png" alt="Hygiene Expert"><h4>Hygiene Expert Name</h4><p>Maintains Quality Standards</p></div>
+                </div>
+            </section>
+            
+            <!-- Call to Action Section -->
+            <section class="cta-section">
+                <h2>Plan Your Perfect Event Menu</h2>
+                <p>Contact us today for a custom quote and menu planning for your next special occasion.</p>
+                <a href="contact.html" class="btn">Request a Free Quote</a>
+            </section>
+        </main>
+    </div>
+    
+    <!-- ফুটার এখানে লোড হবে -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- এই স্ক্রিপ্টটি প্রতিটি পেজের শেষে থাকবে -->
+    <script src="main.js" defer></script>
+</body>
+</html>

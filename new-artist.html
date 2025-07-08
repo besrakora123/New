@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our Team - Sasang Piyo Official</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Dark Theme (Default) */
+            --bg-dark: #121212; --bg-light: #1E1E1E; --text-primary: #FFFFFF;
+            --text-secondary: #b3b3b3; --brand-color: #DAA520; --border-color: #2c2c2c;
+            --font-heading: 'Teko', sans-serif; --font-body: 'Poppins', sans-serif;
+        }
+        body.light-theme {
+            /* Light Theme Variables */
+            --bg-dark: #FFFFFF; --bg-light: #f5f5f5; --text-primary: #121212;
+            --text-secondary: #555555; --brand-color: #C8961E; --border-color: #dddddd;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-dark); font-family: var(--font-body); color: var(--text-primary); transition: background-color 0.3s, color 0.3s; }
+        .container { max-width: 960px; margin: 0 auto; padding: 0 15px; }
+        a { color: var(--brand-color); text-decoration: none; }
+
+        /* Main Content */
+        .main-content { padding: 40px 0; }
+        .page-hero { 
+            padding: 60px 20px; text-align: center; 
+            background: linear-gradient(rgba(18,18,18,0.8), rgba(18,18,18,0.8)), url('images/artist-hero.png') no-repeat center center/cover; 
+            border-radius: 12px; margin-bottom: 50px; 
+        }
+        .page-hero h1 { font-family: var(--font-heading); font-size: 48px; }
+        .page-hero p { font-size: 18px; color: #f0f0f0; max-width: 600px; margin: 10px auto 0 auto; }
+        
+        .section { margin-bottom: 50px; }
+        .section-title { font-family: var(--font-heading); font-size: 36px; text-align: center; margin-bottom: 40px; color: var(--text-primary); }
+        
+        /* Form Styles */
+        .form-container { background-color: var(--bg-light); padding: 30px; border-radius: 12px; max-width: 700px; margin: 0 auto; border: 1px solid var(--border-color); }
+        .form-row { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--text-primary); }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color);
+            background-color: var(--bg-dark); color: var(--text-primary); font-size: 14px;
+        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .btn { 
+            display: inline-block; padding: 12px 30px; background-color: var(--brand-color); 
+            color: #121212; border: none; text-decoration: none; border-radius: 50px; 
+            font-weight: 600; cursor: pointer; transition: transform 0.2s, background-color 0.2s;
+        }
+        .btn:hover { transform: scale(1.05); background-color: #ffc107; }
+        
+        @media (min-width: 768px) {
+            .form-row { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- হেডার এখানে লোড হবে -->
+    <div id="header-placeholder"></div>
+    
+    <div class="container">
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="page-hero">
+                <h1>Your Talent Deserves a Stage</h1>
+                <p>Are you a passionate creator? Singer, actor, director, or writer? Sasang Piyo Official is your gateway to the industry. Let's grow together.</p>
+            </section>
+            
+            <!-- Application Form Section -->
+            <section class="section">
+                <h2 class="section-title">Submit Your Application</h2>
+                <div class="form-container">
+                    <!-- Netlify ফর্মের জন্য name এবং data-netlify="true" attribute যোগ করা হয়েছে -->
+                    <form name="new-talent-application" method="POST" data-netlify="true">
+                        <!-- Netlify ফর্মের জন্য একটি লুকানো ইনপুট ফিল্ড -->
+                        <input type="hidden" name="form-name" value="new-talent-application">
+
+                        <!-- Personal Information -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dob">Date of Birth</label>
+                                <input type="date" id="dob" name="dob" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                             <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age" min="16" max="100" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">Select Gender...</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label for="address">Full Address</label>
+                            <textarea id="address" name="address" rows="3" required></textarea>
+                        </div>
+
+                        <!-- Professional Information -->
+                         <div class="form-group">
+                            <label for="talent-category">Your Talent / Role</label>
+                            <select id="talent-category" name="talent-category" required>
+                                <option value="">Select a category...</option>
+                                <optgroup label="On-Screen Talent">
+                                    <option value="actor">Actor / Actress</option>
+                                    <option value="singer">Singer</option>
+                                    <option value="dancer">Dancer</option>
+                                    <option value="comedian">Comedian</option>
+                                </optgroup>
+                                <optgroup label="Behind the Camera">
+                                    <option value="director">Director</option>
+                                    <option value="scriptwriter">Scriptwriter</option>
+                                    <option value="cinematographer">Cinematographer / Cameraman</option>
+                                    <option value="editor">Video Editor</option>
+                                    <option value="sound-designer">Sound Designer</option>
+                                </optgroup>
+                                 <optgroup label="Music">
+                                    <option value="music-composer">Music Composer</option>
+                                    <option value="lyricist">Lyricist</option>
+                                </optgroup>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                         <div class="form-group">
+                            <label for="portfolio-link">Link to Your Work (YouTube, Instagram, etc.)</label>
+                            <input type="url" id="portfolio-link" name="portfolio-link" placeholder="https://youtube.com/your-video">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Tell Us About Yourself</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Briefly describe your experience and goals..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Application</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- ফুটার এখানে লোড হবে -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- এই স্ক্রিপ্টটি প্রতিটি পেজের শেষে থাকবে -->
+    <script src="main.js" defer></script>
+</body>
+</html>

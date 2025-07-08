@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Sasang Piyo Official</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Dark Theme (Default) */
+            --bg-dark: #121212; --bg-light: #1E1E1E; --text-primary: #FFFFFF;
+            --text-secondary: #b3b3b3; --brand-color: #DAA520; --border-color: #2c2c2c;
+            --font-heading: 'Teko', sans-serif; --font-body: 'Poppins', sans-serif;
+        }
+        body.light-theme {
+            /* Light Theme Variables */
+            --bg-dark: #FFFFFF; --bg-light: #f5f5f5; --text-primary: #121212;
+            --text-secondary: #555555; --brand-color: #C8961E; --border-color: #dddddd;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); font-family: var(--font-body); color: var(--text-primary); transition: background-color 0.3s, color 0.3s; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        a { color: var(--brand-color); text-decoration: none; }
+
+        /* Main Content */
+        .main-content { padding: 40px 0; }
+        .page-header { text-align: center; margin-bottom: 50px; }
+        .page-header h1 { font-family: var(--font-heading); font-size: 48px; color: var(--text-primary); }
+        .page-header p { font-size: 16px; color: var(--text-secondary); }
+        
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .contact-info, .contact-form-container {
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-info h3, .contact-form-container h3 {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--brand-color);
+            padding-bottom: 10px;
+            display: inline-block;
+            color: var(--text-primary);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .info-item .icon { font-size: 20px; color: var(--brand-color); width: 25px; text-align: center; }
+        .info-item p { margin: 0; line-height: 1.6; color: var(--text-secondary); }
+        .info-item a { color: var(--text-secondary); transition: color 0.3s; }
+        .info-item a:hover { color: var(--brand-color); }
+        
+        /* Contact Form */
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--text-primary); }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-size: 14px;
+        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .btn {
+            display: inline-block; padding: 12px 30px; background-color: var(--brand-color);
+            color: #121212; border: none; text-decoration: none; border-radius: 50px;
+            font-weight: 600; cursor: pointer; transition: transform 0.2s, background-color 0.2s;
+        }
+        .btn:hover { transform: scale(1.05); background-color: #ffc107; }
+        
+        /* Google Map */
+        .map-container {
+            margin-top: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 350px;
+            border: 0;
+            filter: grayscale(1) invert(0.9); /* Dark mode map */
+        }
+        body.light-theme .map-container iframe {
+            filter: grayscale(0) invert(0); /* Light mode map */
+        }
+        
+        @media (min-width: 992px) {
+            .contact-layout { grid-template-columns: 1fr 1.5fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- হেডার এখানে লোড হবে -->
+    <div id="header-placeholder"></div>
+    
+    <div class="container">
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Get In Touch</h1>
+                <p>We'd love to hear from you. Whether you have a question about our services or a project in mind, feel free to reach out.</p>
+            </div>
+
+            <div class="contact-layout">
+                <!-- Contact Info Section -->
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="info-item">
+                        <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                        <p>Chhagalkanali, Indpur, Bankura, West Bengal, India - 722136</p>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon"><i class="fas fa-phone"></i></span>
+                        <p><a href="tel:+919064877848">+91 9064877848</a></p>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon"><i class="fas fa-envelope"></i></span>
+                        <p><a href="mailto:contact.sasangpiyoofficial@gmail.com">contact.sasangpiyoofficial@gmail.com</a></p>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon"><i class="fas fa-globe"></i></span>
+                        <p><a href="https://www.sasangpiyoofficial.com" target="_blank">www.sasangpiyoofficial.com</a></p>
+                    </div>
+                </div>
+
+                <!-- Contact Form Section -->
+                <div class="contact-form-container">
+                    <h3>Send Us a Message</h3>
+                    <!-- Netlify ফর্মের জন্য name="contact" এবং data-netlify="true" attribute যোগ করা হয়েছে -->
+                    <form name="contact" method="POST" data-netlify="true">
+                        <!-- Netlify ফর্মের জন্য একটি লুকানো ইনপুট ফিল্ড যোগ করা ভালো -->
+                        <input type="hidden" name="form-name" value="contact">
+                        
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                         <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Google Map Section -->
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58673.81881729837!2d86.89691864197266!3d23.1652158656828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f705a2f354c5af%3A0x8e7b99c27b38749a!2sIndpur%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1672846152178!5m2!1sen!2sin"
+                    allowfullscreen="" 
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </main>
+    </div>
+    
+    <!-- ফুটার এখানে লোড হবে -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- এই স্ক্রিপ্টটি প্রতিটি পেজের শেষে থাকবে -->
+    <script src="main.js" defer></script>
+</body>
+</html>
